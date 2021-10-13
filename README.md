@@ -3,9 +3,9 @@ Team Name : Error Squad
 
 ## Team Members' Name :
   * Srinath Pandey (https://github.com/sri-5169)
-  * Shashank Shekhar (N/A)
+  * Shashank Shekhar (https://github.com/shekhar5004)
   * Ritik Raj (https://github.com/rit1311raj)
-  * Gaurav Gupta (N/A)
+  * Gaurav Gupta (https://github.com/Gaurav-182000)
   
   ## Proposed Features :
   * User Registration
@@ -15,7 +15,8 @@ Team Name : Error Squad
   *  Responsive UI Design
   * Integrate Switchable Dark Themes
   ## Your Innovation :
-  * N/A
+  * Introducing a feature of edit
+  * Introducing a feature of delete
   
   ## Teck Stack :
   * MERN Stack : React for UI, NodeJs & expressJs for backend and Mongodb for database.
