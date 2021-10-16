@@ -1,0 +1,7 @@
+.posts__component{
+    border : 1px solid black;
+    margin : 1px;
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+}

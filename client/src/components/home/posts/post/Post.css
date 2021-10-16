@@ -1,0 +1,31 @@
+.post {
+    width: 70%;
+    border: 3px solid lightgray;
+    border-radius: 10;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    border-radius: 10px;
+    background-color: white;
+  }
+  .post__image {
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    object-fit: cover;
+  }
+  .post__upper {
+    display: flex;
+  }
+  .post__icon {
+    align-self: center;
+    height : 100px;
+    width : 100px;
+    border-radius : 50%;
+  }
+  .post__details{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
