@@ -1,0 +1,33 @@
+[33mcommit 53e4d0cf302df684760d8c709681db8a7ba87900[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31moriginal/main[m[33m)[m
+Author: Ritik Raj <ritik2903raj@gmail.com>
+Date:   Sat Oct 16 08:56:25 2021 +0530
+
+    header completed
+
+[33mcommit 32a52f97d540c638c81dbc9c704b8b34d92ec2e3[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Srinath Pandey <72240749+sri-5169@users.noreply.github.com>
+Date:   Thu Oct 14 13:15:02 2021 +0530
+
+    Pushing the basic files for react app
+
+[33mcommit 2b22026972fefa1c03998dc03d5f2ccedc96866c[m
+Author: Srinath Pandey <72240749+sri-5169@users.noreply.github.com>
+Date:   Wed Oct 13 22:31:37 2021 +0530
+
+    Updated Readme.md
+    
+    Added the team member Ids and some of the innovations which will be added by us.
+
+[33mcommit 0c8470d72a45bfe9da5b49342bbbf1e1e3be5fe6[m
+Author: Srinath Pandey <72240749+sri-5169@users.noreply.github.com>
+Date:   Wed Oct 13 19:12:13 2021 +0530
+
+    Updated Readme File
+    
+    Introduced the team name, its member, PS name and the tech stack to be used in the project.
+
+[33mcommit 6a6f392af71033c0caa0ac0fb606a45a4461f326[m
+Author: Srinath Pandey <72240749+sri-5169@users.noreply.github.com>
+Date:   Wed Oct 13 17:51:32 2021 +0530
+
+    Initial commit

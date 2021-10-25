@@ -1,23 +1,25 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/styles'
+// import { makeStyles } from '@material-ui/styles'
 import './Posts.css';
 import Post from './post/Post';
-const useStyles = makeStyles({
-    component : {
-        backgroundColor : 'green'
-    }
-});
+import { Link } from 'react-router-dom';
+// const useStyles = makeStyles({
+//     component : {
+//         backgroundColor : 'green'
+//     }
+// });
 
 const Posts = () => {
-    const classes = useStyles();
+    
     return (
         <div className="posts__component">
             Hii from posts
             <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
+            <Link to='/details'><Post /></Link>
+            <Link to='/details'><Post /></Link>
+            <Link to='/details'><Post /></Link>
+            <Link to='/details'><Post /></Link>
+            
             
         </div>
     )

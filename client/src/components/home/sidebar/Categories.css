@@ -1,0 +1,7 @@
+.category {
+    margin : 2px;
+    display: flex;
+    margin-bottom : 5px;
+    color : grey;
+    border-bottom: 2px solid grey;
+}

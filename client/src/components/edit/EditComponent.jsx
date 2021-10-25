@@ -1,7 +1,7 @@
 import React from 'react';
-import './Component.css';
+import './EditComponent.css';
 import {GrAddCircle} from 'react-icons/gr';
-const Component = () =>{
+const EditComponent = () =>{
     return (
       <div className="write">
        <img src="https://www.wallpapertip.com/wmimgs/23-236943_us-wallpaper-for-website.jpg" alt="" className="writeImg"/>
@@ -22,4 +22,4 @@ const Component = () =>{
     )
 }
 
-export default Component;
+export default EditComponent;

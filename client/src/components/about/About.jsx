@@ -1,7 +1,7 @@
 import React from 'react';
 import MidAbout from './MidAbout';
 import Sdata from './Sdata';
-import about from './About.css';
+import './About.css';
  
 const About = () =>{
     

@@ -3,9 +3,10 @@ import { Header } from './components/header/Header';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import AboutMNNIT from './components/mnnit/AboutMNNIT';
 import AboutUs from './components/about/About';
-import Component from './components/CreateComponent/Component';
-import EditComponent from './components/EditComponent/EditComponent';
+import CreateComponent from './components/create/CreateComponent';
+import EditComponent from './components/edit/EditComponent';
 import Home from './components/home/Home';
+import DetailView from './components/detail/DetailView.jsx';
 function App() {
   return (
     <div className="App">
@@ -16,13 +17,16 @@ function App() {
       <AboutMNNIT />
       </Route>
       <Route exact path ='/create'>
-      <Component/>
+      <CreateComponent/>
       </Route>
       <Route exact path ='/edit'>
       <EditComponent/>
       </Route>
-      <Route eaxct path ='/about'>
+      <Route exact path ='/about'>
       <AboutUs />
+      </Route>
+      <Route exact path ='/details'>
+        <DetailView />
       </Route>
 
       <Route exact path ='/contact'>

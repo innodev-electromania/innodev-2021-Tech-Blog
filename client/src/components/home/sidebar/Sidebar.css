@@ -10,12 +10,6 @@
     border-radius : 10px;
     background-color: white;
 }
-.category {
-    margin : 2px;
-    display: flex;
-    margin-bottom : 5px;
-    color : grey;
-}
 .post__seemore{
     color: grey;;
 }
