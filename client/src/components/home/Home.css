@@ -1,9 +1,12 @@
+.home__container {
+  display: grid;
+  grid-template-columns: 2fr 5fr 2fr;
+  flex: 1;
+}
 
-.container{
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    flex : 1;
-     
+@media only screen and (max-width: 600px) {
+  .home__container {
+    display: flex;
+    flex-direction: column;
   }
-  
-  
+}

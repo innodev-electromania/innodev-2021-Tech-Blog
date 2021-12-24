@@ -1,38 +1,32 @@
 import mongoose from "mongoose";
 
-const UserSchema = mongoose.Schema({
-  firstName: {
+const CommentSchema = mongoose.Schema({
+  postAuthor: {
     type: String,
     required: true,
   },
-  lastName: {
+  commentAuthor_email: {
     type: String,
     required: true,
   },
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  year: {
+  commentAuthor_name: {
     type: String,
     required: true,
   },
-  branch: {
+  postId: {
     type: String,
     required: true,
   },
-  email: {
+  date: {
     type: String,
     required: true,
-    unique: true,
   },
-  password: {
+  comments: {
     type: String,
     required: true,
   },
 });
 
-const User = mongoose.model("user", UserSchema);
+const comment = mongoose.model("comment", CommentSchema);
 
-export default User;
+export default comment;

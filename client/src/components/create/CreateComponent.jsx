@@ -2,19 +2,29 @@ import React, { useEffect, useState } from "react";
 import "./CreateComponent.css";
 import { GrAddCircle } from "react-icons/gr";
 import { createPost, uploadFile } from "../../service/api";
+import { useHistory, useLocation } from "react-router-dom";
+import TextareaAutosize from "@mui/material/TextareaAutosize";
+import { CKEditor } from "ckeditor4-react";
+import { Button } from "@material-ui/core";
+import { useContext } from "react";
+import { LoginContext } from "../context/ContextProvider.jsx";
 const initialValues = {
   title: "",
   description: "",
   picture: "",
-  author: "Myself",
-  categories: "All",
-  currentDate: new Date(),
+  author_email: "mathmagic812000@gmail.com",
+  author_name: "Srinath",
+  categories: "",
+  createdDate: new Date(),
 };
 const CreateComponent = () => {
   const [post, setPost] = useState(initialValues);
   const [file, setFile] = useState("");
-
-  //   const [ImageUrl, setImageUrl] = useState("");
+  console.log(post.author_name);
+  const [imageURL, setImageURL] = useState("");
+  const { account, setAccount } = useContext(LoginContext);
+  const history = useHistory();
+  const location = useLocation();
   const url = post.picture
     ? post.picture
     : "https://www.wallpapertip.com/wmimgs/23-236943_us-wallpaper-for-website.jpg";
@@ -28,6 +38,7 @@ const CreateComponent = () => {
         data.append("file", file);
         const image = await uploadFile(data);
         post.picture = image.data;
+        setImageURL(image.data);
       }
     };
     getImage();
@@ -38,51 +49,58 @@ const CreateComponent = () => {
       ...post,
       [event.target.name]: event.target.value,
     });
+    console.log(post);
   };
 
   const savePost = async () => {
+    post.author_email = account.email;
+    post.author_name = account.firstName;
+    post.categories = location.search?.split("=")[1] || "All";
     await createPost(post);
+    history.push("/");
   };
 
   return (
-    <div className="write">
-      <img src={url} alt="" className="writeImg" />
-      <form className="writeForm">
-        <div className="writeFormGroup">
-          <label htmlFor="fileInput">
-            <GrAddCircle className="writeIcon" />
-          </label>
+    <div className="create__container">
+      <img src={url} alt="" className="create__image" />
+      <form className="create__title">
+        <label htmlFor="fileInput">
+          <GrAddCircle className="create__addIcon" />
+        </label>
 
-          <input
-            type="file"
-            id="fileInput"
-            style={{ display: "none" }}
-            onChange={(e) => setFile(e.target.files[0])}
-          />
+        <input
+          type="file"
+          id="fileInput"
+          style={{ display: "none" }}
+          onChange={(e) => setFile(e.target.files[0])}
+        />
 
-          <input
-            type="text"
-            placeholder="title"
-            className="writeInput"
-            autoFocus={true}
-            onChange={(e) => handleChange(e)}
-            name="title"
-          />
-        </div>
-
-        <div className="writeFormGroup">
-          <textarea
-            placeholder="Tell your Story"
-            type="text"
-            className="writeInput writeText"
-            onChange={(e) => handleChange(e)}
-            name="description"
-          ></textarea>
-        </div>
-        <button className="writeSubmit" onClick={savePost}>
+        <input
+          type="text"
+          placeholder="title"
+          className="create__input"
+          autoFocus={true}
+          onChange={(e) => handleChange(e)}
+          name="title"
+        />
+        <Button color="primary" variant="contained" onClick={savePost}>
           Publish
-        </button>
+        </Button>
       </form>
+      <div className="create__textarea">
+        <TextareaAutosize
+          minRows={5}
+          placeholder="Tell your Story"
+          type="text"
+          className="create__textarea"
+          onChange={(e) => handleChange(e)}
+          name="description"
+        ></TextareaAutosize>
+      </div>
+
+      {/* <div className="ckeditor">
+        <CKEditor />
+      </div> */}
     </div>
   );
 };

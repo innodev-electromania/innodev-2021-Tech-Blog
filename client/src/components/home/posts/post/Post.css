@@ -1,31 +1,51 @@
 .post {
-    width: 70%;
-    border: 3px solid lightgray;
-    border-radius: 10;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    border-radius: 10px;
-    background-color: white;
-  }
-  .post__image {
-    width: 100%;
-    border-radius: 0 0 10px 10px;
-    object-fit: cover;
-  }
-  .post__upper {
-    display: flex;
-  }
-  .post__icon {
-    align-self: center;
-    height : 100px;
-    width : 100px;
-    border-radius : 50%;
-  }
-  .post__details{
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
+  width: 70%;
+  border: 3px solid var(--tertiary-background);
+  border-radius: 10;
+  margin: 10px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 10px;
+  color: var(--font--color1);
+  background-color: var(--inner-background);
+}
+.post__image {
+  width: 100%;
+  border-radius: 0 0 10px 10px;
+  object-fit: cover;
+}
+.post__upper {
+  display: flex;
+}
+.post__icon {
+  align-self: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.post__details {
+  display: flex;
+  flex-wrap: wrap;
+  word-break: break-word;
+}
+.post__seemore {
+  color: grey;
+}
+.post__author {
+  color: var(--font--color1);
+  text-decoration: none;
+}
+.post__createdDate {
+  color: grey;
+}
+.post__branch {
+  color: darkgray;
+}
+.post__heading {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  word-break: break-word;
+}

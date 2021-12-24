@@ -11,23 +11,19 @@ conn.once("open", () => {
 });
 
 export const UploadImage = (request, response) => {
-  try {
-    if (!request.file) return response.status(404).json("File not found");
+  if (!request.file) return response.status(404).json("File not found");
 
-    const imageUrl = `${url}/file/${request.file.filename}`;
+  const imageUrl = `${url}/file/${request.file.filename}`;
 
-    response.status(200).json(imageUrl);
-  } catch (error) {
-    response.status(500).json(error);
-  }
+  response.status(200).json(imageUrl);
 };
 
 export const GetImage = async (request, response) => {
   try {
     const file = await gfs.files.findOne({ filename: request.params.filename });
     const readStream = gfs.createReadStream(file.filename);
-    readStream.pipe(response);
+    return readStream.pipe(response);
   } catch (error) {
-    response.status(500).json("Failed to fetch image " + error);
+    response.status(500).json("Failed to fetch image", error);
   }
 };
