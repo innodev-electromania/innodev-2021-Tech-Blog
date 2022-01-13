@@ -4,10 +4,11 @@ import { GrAddCircle } from "react-icons/gr";
 import { createPost, uploadFile } from "../../service/api";
 import { useHistory, useLocation } from "react-router-dom";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
-import { CKEditor } from "ckeditor4-react";
 import { Button } from "@material-ui/core";
 import { useContext } from "react";
 import { LoginContext } from "../context/ContextProvider.jsx";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 const initialValues = {
   title: "",
   description: "",
@@ -50,6 +51,12 @@ const CreateComponent = () => {
       [event.target.name]: event.target.value,
     });
     console.log(post);
+  };
+  const handleCKEditor = (event, editor) => {
+    const data = editor.getData();
+    setPost({ ...post, description: data });
+    console.log(post);
+    console.log(data);
   };
 
   const savePost = async () => {
@@ -98,9 +105,23 @@ const CreateComponent = () => {
         ></TextareaAutosize>
       </div>
 
-      {/* <div className="ckeditor">
-        <CKEditor />
-      </div> */}
+      <div className="ckeditor">
+        <CKEditor
+          type="inline"
+          editor={ClassicEditor}
+          className="ckeditor"
+          onInit={(editor) => {
+            // You can store the "editor" and use when it is needed.
+            console.log("Editor is ready to use!", editor);
+          }}
+          onChange={handleCKEditor}
+        />
+        {post.description ? (
+          <p style={{ color: "white" }}>{post.description}</p>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 };

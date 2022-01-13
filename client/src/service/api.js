@@ -42,6 +42,7 @@ export const GetAllPosts = async (param) => {
 export const GetPost = async (id) => {
   try {
     let response = await axios.get(`${URL}/post/${id}`);
+    console.log("api           ", response.data);
     return response.data;
   } catch (error) {
     console.log("Error while calling GetPost API ", error);

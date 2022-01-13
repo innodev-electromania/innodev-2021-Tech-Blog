@@ -25,7 +25,7 @@ const DetailView = () => {
     const fetchData = async () => {
       try {
         let data = await GetPost(id);
-        console.log(data);
+        console.log("post is ", data);
         setPost(data);
       } catch (error) {
         console.log("Error in the fetching inside the component", error);

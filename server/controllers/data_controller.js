@@ -32,6 +32,8 @@ export const GetAllPosts = async (request, response) => {
 export const GetPost = async (request, response) => {
   try {
     let post = await Post.findById(request.params.id);
+    console.log("backend           ", post);
+
     response.status(200).json(post);
   } catch (error) {
     response.status(500).json(error);

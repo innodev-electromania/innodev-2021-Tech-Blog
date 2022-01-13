@@ -1,0 +1,25 @@
+.profile__picture {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+.profile__upper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile__container {
+  width: 20%;
+  border: 3px solid var(--tertiary-background);
+  border-radius: 10;
+  position: fixed;
+  margin: 10px;
+  left: 77%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60vh;
+  border-radius: 10px;
+  color: var(--font--color1);
+  background-color: var(--inner-background);
+}

@@ -6,16 +6,41 @@ import { LoginContext } from "../context/ContextProvider.jsx";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 const Header = () => {
+  // const themes = localStorage.getItem("theme");
+  // useEffect(() => {
+  //   themes = localStorage.getItem("theme");
+  //   console.log("themes  ", themes);
+  // }, []);
+  const themes = localStorage.getItem("theme");
   const [isMobile, setIsMobile] = useState(false);
   const { account, setAccount } = useContext(LoginContext);
   const [theme, setTheme] = useState("light");
-  const toggleTheme = () => {
-    document.body.classList.toggle("darkTheme");
+
+  const toggleTheme = (event) => {
+    event.preventDefault();
+    theme === "light"
+      ? document.body.classList.add("darkTheme")
+      : document.body.classList.remove("darkTheme");
+
     theme === "light" ? setTheme("dark") : setTheme("light");
+    localStorage.setItem("theme", theme);
+    console.log("theme after toggling", theme);
   };
+
   useEffect(() => {
-    setTheme("light");
+    console.log("themes  got from localstorage is ", theme);
+    theme === "dark"
+      ? document.body.classList.remove("darkTheme")
+      : document.body.classList.add("darkTheme");
+    themes === "light" ? setTheme("dark") : setTheme("light");
+
+    const data = localStorage.getItem("user");
+    if (data) setAccount(JSON.parse(data));
   }, []);
+  const handleLogout = () => {
+    localStorage.setItem("user", "");
+    setAccount("");
+  };
   return (
     <nav className="navbar">
       <h3 className="logo">Techblog</h3>
@@ -33,7 +58,11 @@ const Header = () => {
           <li>Contact</li>
         </Link>
         <Link to="/login" className="login">
-          {account ? <li> {account.firstName} </li> : <li> Login</li>}
+          {account ? (
+            <li onClick={handleLogout}> {account.firstName} </li>
+          ) : (
+            <li> Login</li>
+          )}
         </Link>
       </ul>
       <button

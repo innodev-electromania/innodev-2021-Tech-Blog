@@ -17,8 +17,9 @@
   /* background-color: lightblue; */
   background-color: var(--tertiary-background);
 
-  color: white;
   z-index: 10;
+  opacity: 100%;
+  color: white;
 }
 .logo {
   font-size: 30px;

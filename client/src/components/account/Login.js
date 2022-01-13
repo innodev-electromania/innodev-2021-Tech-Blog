@@ -49,12 +49,15 @@ const Login = (props) => {
       [event.target.name]: event.target.value,
     });
   };
-
+  const localStore = (data) => {
+    localStorage.setItem("user", JSON.stringify(data));
+  };
   const handleLogin = async () => {
     let loggedInUser = await loginUser(user);
     history.push("/");
     try {
       setAccount(loggedInUser);
+      localStore(loggedInUser);
     } catch (error) {
       console.log(error);
     }

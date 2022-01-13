@@ -6,10 +6,16 @@ export const CreateUser = async (request, response) => {
     if (exist) {
       return response.status(401).json("User Already exists");
     }
+
     const user = request.body;
-    const newuser = new User(user);
-    await newuser.save();
-    response.status(200).json("User successfully registered");
+    if (user.password === user.confirmedPassword) {
+      const newuser = new User(user);
+
+      await newuser.save();
+      response.status(200).json("User successfully registered");
+    } else {
+      response.status(200).json("Wrong Credentials");
+    }
   } catch (error) {
     console.log("Error :  ", error.message);
   }

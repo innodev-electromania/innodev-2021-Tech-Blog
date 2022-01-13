@@ -65,8 +65,8 @@ const Signup = () => {
     console.log(newUser);
   };
   const saveUser = async () => {
-    await createUser(newUser);
     try {
+      await createUser(newUser);
       setAccount(newUser);
     } catch (error) {
       console.log(error);

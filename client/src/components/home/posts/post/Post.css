@@ -1,8 +1,10 @@
 .post {
-  width: 70%;
+  width: 60%;
   border: 3px solid var(--tertiary-background);
   border-radius: 10;
   margin: 10px;
+  justify-self: center;
+  margin-right: auto;
   margin-left: auto;
   display: flex;
   flex-direction: column;

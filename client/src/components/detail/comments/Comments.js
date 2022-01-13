@@ -63,7 +63,7 @@ const Comments = ({ post }) => {
       ...comment,
       postAuthor: post.author_name,
       commentAuthor_email: account.email,
-      commentAuthor_name: "Shashank",
+      commentAuthor_name: account.firstName,
       postId: post._id,
       comments: e.target.value,
     });
