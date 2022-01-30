@@ -14,7 +14,7 @@ const Header = () => {
   const themes = localStorage.getItem("theme");
   const [isMobile, setIsMobile] = useState(false);
   const { account, setAccount } = useContext(LoginContext);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(themes);
 
   const toggleTheme = (event) => {
     event.preventDefault();

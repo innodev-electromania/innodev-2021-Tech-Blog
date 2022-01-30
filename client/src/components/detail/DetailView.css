@@ -1,9 +1,10 @@
 .detail__component {
   margin: 50px 100px;
 }
-@media only screen and (max-width: 600) {
+@media only screen and (max-width: 600px) {
   .detail__component {
-    margin: 0;
+    margin: 60px auto;
+    width: 70vw;
   }
 }
 .detail__Img {
@@ -16,23 +17,38 @@
 .detail__title {
   border: none;
   text-align: center;
+  color: var(--font--color1);
 }
 .detail__author {
   text-decoration: none;
   color: black;
+  width: fit-content;
+  display: flex;
+  width: 90%;
+  margin: 0px auto;
+  justify-content: space-between;
+  color: var(--font--color1);
 }
-.detail__date {
-  margin-left: auto;
+
+.detailview__icons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.editlink {
+  color: var(--edit-color);
 }
 .edit_button {
   border: 1px solid blue;
   border-radius: 5px;
   padding: 2px;
   margin-right: 2px;
+  color: red;
 }
 .delete__button {
   border: 1px solid red;
   border-radius: 5px;
   padding: 2px;
   margin-right: 2px;
+  margin-left: auto;
 }

@@ -78,25 +78,29 @@ const Comments = ({ post }) => {
 
   return (
     <Box>
-      <Box className={classes.container}>
-        <img src={avatar1} className={classes.image} alt="dp" />
-        <TextareaAutosize
-          rowsMin={5}
-          className={classes.textarea}
-          placeholder="what's on your mind?"
-          onChange={(e) => handleChange(e)}
-          value={data}
-        />
-        <Button
-          variant="contained"
-          color="primary"
-          size="medium"
-          className={classes.button}
-          onClick={(e) => addComment(e)}
-        >
-          Post
-        </Button>
-      </Box>
+      {account ? (
+        <Box className={classes.container}>
+          <img src={avatar1} className={classes.image} alt="dp" />
+          <TextareaAutosize
+            rowsMin={5}
+            className={classes.textarea}
+            placeholder="what's on your mind?"
+            onChange={(e) => handleChange(e)}
+            value={data}
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            size="medium"
+            className={classes.button}
+            onClick={(e) => addComment(e)}
+          >
+            Post
+          </Button>
+        </Box>
+      ) : (
+        ""
+      )}
       <Box>
         {comments &&
           comments.map((comment) => (

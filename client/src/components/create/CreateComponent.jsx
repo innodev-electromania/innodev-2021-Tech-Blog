@@ -7,8 +7,7 @@ import TextareaAutosize from "@mui/material/TextareaAutosize";
 import { Button } from "@material-ui/core";
 import { useContext } from "react";
 import { LoginContext } from "../context/ContextProvider.jsx";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import TextEditor from "./editor/TextEditor";
 const initialValues = {
   title: "",
   description: "",
@@ -26,9 +25,10 @@ const CreateComponent = () => {
   const { account, setAccount } = useContext(LoginContext);
   const history = useHistory();
   const location = useLocation();
-  const url = post.picture
-    ? post.picture
-    : "https://www.wallpapertip.com/wmimgs/23-236943_us-wallpaper-for-website.jpg";
+  // const url = post.picture
+  // ? post.picture
+  const url =
+    "https://www.wallpapertip.com/wmimgs/23-236943_us-wallpaper-for-website.jpg";
 
   useEffect(() => {
     const getImage = async () => {
@@ -44,7 +44,10 @@ const CreateComponent = () => {
     };
     getImage();
   }, [file]);
-
+  const handleEditor = (content) => {
+    setPost({ ...post, [post.description]: content });
+    console.log("post", post);
+  };
   const handleChange = (event) => {
     setPost({
       ...post,
@@ -52,12 +55,9 @@ const CreateComponent = () => {
     });
     console.log(post);
   };
-  const handleCKEditor = (event, editor) => {
-    const data = editor.getData();
-    setPost({ ...post, description: data });
-    console.log(post);
-    console.log(data);
-  };
+  useEffect(() => {
+    console.log("post ", post);
+  }, [post]);
 
   const savePost = async () => {
     post.author_email = account.email;
@@ -97,31 +97,16 @@ const CreateComponent = () => {
       <div className="create__textarea">
         <TextareaAutosize
           minRows={5}
+          id="editor"
           placeholder="Tell your Story"
           type="text"
           className="create__textarea"
-          onChange={(e) => handleChange(e)}
+          // onChange={(e) => handleChange(e)}
           name="description"
         ></TextareaAutosize>
       </div>
 
-      <div className="ckeditor">
-        <CKEditor
-          type="inline"
-          editor={ClassicEditor}
-          className="ckeditor"
-          onInit={(editor) => {
-            // You can store the "editor" and use when it is needed.
-            console.log("Editor is ready to use!", editor);
-          }}
-          onChange={handleCKEditor}
-        />
-        {post.description ? (
-          <p style={{ color: "white" }}>{post.description}</p>
-        ) : (
-          ""
-        )}
-      </div>
+      <TextEditor post={post} changePost={(value) => setPost(value)} />
     </div>
   );
 };

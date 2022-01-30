@@ -5,6 +5,7 @@
   --font--color1: black;
   --font-color2: darkgrey;
   --inner-background: white;
+  --edit-color: #1e88e5;
 }
 .darkTheme {
   --primary-background: #171f24;
@@ -13,6 +14,7 @@
   --font--color1: white;
   --font-color2: grey;
   --inner-background: var(--tertiary-background);
+  --edit-color: white;
 }
 .App {
   padding: 0 100px;

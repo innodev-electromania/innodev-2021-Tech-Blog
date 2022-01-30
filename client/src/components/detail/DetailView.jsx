@@ -55,10 +55,15 @@ const DetailView = () => {
         />
         {account && account.email === post.author_email ? (
           <div className="detailview__icons">
-            <Link to={`/update/${post._id}`}>
-              <Edit className="edit_button" color="primary" />
+            <Link to={`/update/${post._id}`} className="editlink">
+              <Edit
+                className="edit_button"
+                style={{
+                  color: "var(--edit-color)",
+                  borderColor: "var(--edit-color)",
+                }}
+              />
             </Link>
-
             <Delete
               className="delete__button"
               color="error"
@@ -72,18 +77,41 @@ const DetailView = () => {
 
         <h4 className="detail__title">{post.title}</h4>
         <div className="detail__author">
+          <p style={{ color: " var(--font-color2)", marginRight: 3 }}>
+            Author:{" "}
+          </p>
           <Link
             className="detail__author"
             to={`/?author_name=${post.author_name}`}
           >
-            <p>{post.author}</p>
+            <p>{post.author_name}</p>
           </Link>
-          <p className="detail__date">
-            {new Date(post.createdDate).toDateString()}
-          </p>
+
+          <div
+            className="detail__date"
+            style={{ display: "flex", width: "fit-content" }}
+          >
+            <small
+              style={{
+                color: " var(--font-color2)",
+                marginRight: 3,
+                width: "100%",
+              }}
+            >
+              Last Modified on: {""}
+            </small>
+            <p style={{ display: "block", width: "70%" }}>
+              {new Date(post.createdDate).toDateString()}
+            </p>
+          </div>
         </div>
 
-        <p className="detail__description">{post.description}</p>
+        <p
+          className="detail__description"
+          style={{ color: "var(--font-color2)" }}
+        >
+          {post.description}
+        </p>
       </div>
       <Dialog
         open={open}
@@ -101,7 +129,7 @@ const DetailView = () => {
           </Button>
         </DialogActions>
       </Dialog>
-      {account ? <Comments post={post} /> : <p></p>}
+      <Comments post={post} />
     </>
   );
 };
